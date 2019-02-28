@@ -1,6 +1,7 @@
 public class Constant extends Function {
+    public int value;
     public Constant(int value){
-
+        this.value = value;
     }
 
     public double evaluate(double x) {
@@ -12,6 +13,6 @@ public class Constant extends Function {
     }
 
     public String toString() {
-        return super.toString();
+        return Integer.toString(value);
     }
 }
