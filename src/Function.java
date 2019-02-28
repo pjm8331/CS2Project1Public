@@ -1,16 +1,10 @@
 public abstract class Function {
 
-    public double evaluate(double x){
-        return 0.0;
-    }
+    public abstract double evaluate(double x);
 
     @Override
-    public String toString(){
-        return "";
-    }
+    public abstract String toString();
 
-    public boolean isConstant(){
-        return false;
-    }
+    public abstract boolean isConstant();
 
 }
