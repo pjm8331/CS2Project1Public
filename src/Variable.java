@@ -1,4 +1,4 @@
-public class Variable implements Function {
+public class Variable extends Function {
     private Variable(){
 
     }

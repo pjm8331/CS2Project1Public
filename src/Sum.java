@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Sum implements Function {
+public class Sum extends Function {
     public Sum(ArrayList<Function> things){
 
     }

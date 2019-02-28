@@ -1,4 +1,4 @@
-public class Constant implements Function {
+public class Constant extends Function {
     public Constant(int value){
 
     }
