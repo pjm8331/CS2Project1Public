@@ -1,10 +1,11 @@
 public class Variable extends Function {
+    public final static Variable X = new Variable();
     private Variable(){
 
     }
 
     public double evaluate(double x) {
-        return 0;
+        return x;
     }
 
     public boolean isConstant() {
@@ -13,6 +14,6 @@ public class Variable extends Function {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "x";
     }
 }
