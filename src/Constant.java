@@ -9,7 +9,7 @@ public class Constant extends Function {
     }
 
     public boolean isConstant() {
-        return false;
+        return true;
     }
 
     public String toString() {
