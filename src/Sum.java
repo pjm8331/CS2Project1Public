@@ -1,12 +1,16 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Sum extends Function {
     public ArrayList<Function> things;
+    private boolean constant = true;
 
     public Sum(Function ...things){
         for(Function i: things){
             this.things.add(i);
+
+            if(constant && !i.isConstant()){
+                constant = false;
+            }
         }
 
 
@@ -26,7 +30,7 @@ public class Sum extends Function {
     }
 
     public boolean isConstant() {
-        return false;
+        return constant;
     }
 
     @Override
