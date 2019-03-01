@@ -1,7 +1,6 @@
 public class Variable extends Function {
     public final static Variable X = new Variable();
     private Variable(){
-        //Create constructor stuff
     }
 
     public double evaluate(double x) {

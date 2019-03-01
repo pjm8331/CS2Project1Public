@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
 public class Sum extends Function {
-    public ArrayList<Function> things;
+    public Function[] things;
     private boolean constant = true;
 
     public Sum(Function ...things){
-        for(Function i: things){
-            this.things.add(i);
-
+        this.things = things;
+        for(Function i : things){
             if(constant && !i.isConstant()){
                 constant = false;
             }
@@ -18,8 +17,8 @@ public class Sum extends Function {
 
     public double evaluate(double x) {
         ArrayList<Double> compute = new ArrayList<>();
-        for(int i = 0; i<things.size(); i++){
-            compute.add(things.get(i).evaluate(x));
+        for(int i = 0; i<things.length; i++){
+            compute.add(things[i].evaluate(x));
         }
         double total = 0.0;
         for(int i = 0; i<compute.size(); i++){
@@ -36,8 +35,8 @@ public class Sum extends Function {
     @Override
     public String toString() {
         String string = "";
-        for(int i = 0; i<things.size(); i++){
-            string += (things.get(i).toString()) + " + ";
+        for(int i = 0; i<things.length; i++){
+            string += (things[i].toString()) + " + ";
         }
         return string;
     }
