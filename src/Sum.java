@@ -22,7 +22,6 @@ public class Sum extends Function {
         }
         double total = 0.0;
         for(int i = 0; i<compute.size(); i++){
-            System.out.println(total + "+" + compute.get(i)); //For testing purposes
             total += compute.get(i);
         }
         return total;
@@ -34,9 +33,14 @@ public class Sum extends Function {
 
     @Override
     public String toString() {
-        String string = "";
+        String string = "(";
         for(int i = 0; i<things.length; i++){
-            string += (things[i].toString()) + " + ";
+            if(i == things.length-1){
+                string += things[i].toString() + ")";
+            }
+            else{
+                string += (things[i].toString()) + "+";
+            }
         }
         return string;
     }
