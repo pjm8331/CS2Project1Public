@@ -5,7 +5,7 @@ public class Constant extends Function {
     }
 
     public double evaluate(double x) {
-        return 0;
+        return value;
     }
 
     public boolean isConstant() {
