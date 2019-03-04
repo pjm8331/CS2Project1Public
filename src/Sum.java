@@ -28,7 +28,7 @@ public class Sum extends Function {
     }
 
     public boolean isConstant() {
-        return constant;
+        return this.constant;
     }
 
     @Override
