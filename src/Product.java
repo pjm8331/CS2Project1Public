@@ -20,7 +20,7 @@ public class Product extends Function {
         for(int i = 0; i<things.length; i++){
             compute.add(things[i].evaluate(x));
         }
-        double total = 0.0;
+        double total = 1;
         for(int i = 0; i<compute.size(); i++){
             total = total * compute.get(i);
         }
