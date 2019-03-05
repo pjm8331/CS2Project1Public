@@ -19,6 +19,7 @@ public class Sum extends Function {
         ArrayList<Double> compute = new ArrayList<>();
         for(int i = 0; i<things.length; i++){
             compute.add(things[i].evaluate(x));
+
         }
         double total = 0.0;
         for(int i = 0; i<compute.size(); i++){
@@ -29,6 +30,14 @@ public class Sum extends Function {
 
     public boolean isConstant() {
         return this.constant;
+    }
+
+    public Sum derivative(){
+        ArrayList<Function> newthings = new ArrayList<>();
+        for(int i = 0; i<things.length; i++){
+            newthings.add(things[i].derivative())
+        }
+
     }
 
     @Override
