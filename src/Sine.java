@@ -13,7 +13,7 @@ public class Sine extends Function{
     }
 
     public Function derivative() {
-        return null;
+        return new Product(new Cosine(function), function.derivative());
     }
 
     @Override
