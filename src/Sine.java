@@ -12,6 +12,10 @@ public class Sine extends Function{
         return false;
     }
 
+    public Function derivative() {
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Sin(" + function.toString() + ")";
