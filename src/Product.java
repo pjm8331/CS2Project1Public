@@ -31,6 +31,10 @@ public class Product extends Function {
         return this.constant;
     }
 
+    public Function derivative(){
+        return null;
+    }
+
     @Override
     public String toString() {
         String string = "(";
