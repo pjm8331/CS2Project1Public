@@ -36,10 +36,10 @@ public class Product extends Function {
     }
 
     public Function powerrule(Constant in, int numbervar){
-        Function[] news = new Function[numbervar + 1];
+        Function[] news = new Function[numbervar];
         double newin = in.evaluate(0)/numbervar;
         news[0] = new Constant(newin);
-        for(int i = 1; i<numbervar-1; i++){
+        for(int i = 1; i<numbervar; i++){
             news[i] = Variable.X;
         }
         return new Product(news);
