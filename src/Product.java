@@ -67,7 +67,22 @@ public class Product extends Function {
             return powerrule(new Constant(totalconstant), numbervar);
         }
         else{
-            return productrule();
+            if(things.length == 2){
+
+            }
+            else if(things.length ==3){
+
+            }
+            else if((things.length % 2 == 0)){
+                Function[] f1 = new Function[things.length/2];
+                Function[] f2 = new Function[things.length/2];
+                for(int i = 1; i<= things.length/2; i++){
+                    f1[i-1] = things[i-0];
+                }
+                for(int i = things.length/2 +1; i<= things.length; i++){
+                    f2[] = things[];
+                }
+            }
         }
 
     }
