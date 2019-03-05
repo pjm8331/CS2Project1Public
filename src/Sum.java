@@ -33,11 +33,11 @@ public class Sum extends Function {
     }
 
     public Sum derivative(){
-        ArrayList<Function> newthings = new ArrayList<>();
+        Function[] newthings = new Function[things.length];
         for(int i = 0; i<things.length; i++){
-            newthings.add(things[i].derivative())
+            newthings[i] = things[i].derivative();
         }
-
+        return new Sum(newthings);
     }
 
     @Override
