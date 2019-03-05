@@ -11,8 +11,8 @@ public class Variable extends Function {
         return false;
     }
 
-    public double derivative(){
-        return 1;
+    public Function derivative(){
+        return new Constant(1);
     }
 
     @Override
