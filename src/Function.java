@@ -5,6 +5,8 @@ public abstract class Function {
     @Override
     public abstract String toString();
 
+    public abstract Function derivative();
+
     public abstract boolean isConstant();
 
 }
