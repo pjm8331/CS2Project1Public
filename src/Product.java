@@ -31,8 +31,45 @@ public class Product extends Function {
         return this.constant;
     }
 
-    public Function derivative(){
+    public Function productrule(){
         return null;
+    }
+
+    public Function powerrule(Constant in, int numbervar){
+        Function[] news = new Function[numbervar + 1];
+        double newin = in.evaluate(0)/numbervar;
+        news[0] = new Constant(newin);
+        for(int i = 1; i<numbervar-1; i++){
+            news[i] = Variable.X;
+        }
+        return new Product(news);
+    }
+
+    public Function derivative(){
+        int numbervar = 0;
+        double totalconstant = 1;
+        boolean id = false;
+        for(int i = 0; i<things.length; i++){
+            if(things[i] instanceof Variable){
+                numbervar+=1;
+            }
+            if(things[i].isConstant()){
+                totalconstant = totalconstant * things[i].evaluate(0);
+            }
+            if((things[i] instanceof Sine || things[i] instanceof Product || things[i] instanceof Cosine || things[i] instanceof Sum) && !id){
+                id = true;
+            }
+        }
+        if(isConstant()){
+            return new Constant(0);
+        }
+        else if(!id){
+            return powerrule(new Constant(totalconstant), numbervar);
+        }
+        else{
+            return productrule();
+        }
+
     }
 
     @Override
