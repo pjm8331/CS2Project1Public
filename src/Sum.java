@@ -37,7 +37,7 @@ public class Sum extends Function {
         for(int i = 0; i<things.length; i++){
             newthings[i] = things[i].derivative();
         }
-        Sum checks = new Sum(newthings);
+        Sum checks = new Sum(newthings);    //Change to just add all constants and return a sum of added constants and other functions if isConstant is false
         if(checks.isConstant()){
             return new Constant(checks.evaluate(0));
         }
