@@ -32,12 +32,16 @@ public class Sum extends Function {
         return this.constant;
     }
 
-    public Sum derivative(){
+    public Function derivative(){
         Function[] newthings = new Function[things.length];
         for(int i = 0; i<things.length; i++){
             newthings[i] = things[i].derivative();
         }
-        return new Sum(newthings);
+        Sum checks = new Sum(newthings);
+        if(checks.isConstant()){
+            return new Constant(checks.evaluate(0));
+        }
+        return checks;
     }
 
     @Override
