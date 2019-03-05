@@ -12,6 +12,10 @@ public class Cosine extends Function{
         return false;
     }
 
+    public Function derivative(){
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Cos(" + function.toString() + ")";
