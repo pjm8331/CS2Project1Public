@@ -12,6 +12,10 @@ public class Constant extends Function {
         return true;
     }
 
+    public double derivative(){
+        return 0;
+    }
+
     public String toString() {
         return Double.toString(value);
     }
