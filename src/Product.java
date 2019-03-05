@@ -31,8 +31,8 @@ public class Product extends Function {
         return this.constant;
     }
 
-    public Function productrule(){
-        return null;
+    public Function productrule(Function f1, Function f2){
+        return new Sum(new Product(f1.derivative(), f2), new Product(f1, f2.derivative()));
     }
 
     public Function powerrule(Constant in, int numbervar){
