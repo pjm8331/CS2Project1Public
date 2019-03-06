@@ -56,7 +56,7 @@ public class Product extends Function {
             if (things[i].isConstant()) {
                 totalconstant = totalconstant * things[i].evaluate(0);
             }
-            if ((things[i] instanceof Product || things[i] instanceof Sum) && !id) {
+            if ((things[i] instanceof Product || things[i] instanceof Sine || things[i] instanceof Cosine || things[i] instanceof Sum) && !id) {
                 id = true;
             }
         }
