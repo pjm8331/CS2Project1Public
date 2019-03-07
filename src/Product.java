@@ -17,13 +17,17 @@ public class Product extends Function {
 
     public double evaluate(double x) {
         ArrayList<Double> compute = new ArrayList<>();
+
         for(int i = 0; i<things.length; i++){
             compute.add(things[i].evaluate(x));
         }
+
         double total = 1;
+
         for(int i = 0; i<compute.size(); i++){
             total = total * compute.get(i);
         }
+
         return total;
     }
 
@@ -39,9 +43,11 @@ public class Product extends Function {
         Function[] news = new Function[numbervar];
         double newin = in.evaluate(0)/numbervar;
         news[0] = new Constant(newin);
+
         for(int i = 1; i<numbervar; i++){
             news[i] = Variable.X;
         }
+
         return new Product(news);
     }
 
@@ -49,33 +55,48 @@ public class Product extends Function {
         int numbervar = 0;
         double totalconstant = 1;
         boolean id = false;
+
         for (int i = 0; i < things.length; i++) {
             if (things[i] instanceof Variable) {
                 numbervar += 1;
             }
+
             if (things[i].isConstant()) {
                 totalconstant = totalconstant * things[i].evaluate(0);
             }
+
             if ((things[i] instanceof Product || things[i] instanceof Sine || things[i] instanceof Cosine || things[i] instanceof Sum) && !id) {
                 id = true;
             }
         }
+
         if (isConstant()) {
             return new Constant(0);
-        } else if (!id) {
+        }
+
+        else if (!id) {
             return powerrule(new Constant(totalconstant), numbervar);
-        } else {
+        }
+
+        else {
+
             if (things.length == 2) {
                 return productrule(things[0], things[1]);
 
-            } else if (things.length == 3) {
+            }
+
+            else if (things.length == 3) {
                 return productrule(new Product(things[0], things[1]), things[2]);
-            } else{
+            }
+
+            else{
                 Function[] f1 = new Function[things.length / 2];
                 Function[] f2 = new Function[things.length / 2];
+
                 for (int i = 1; i <= things.length / 2; i++) {
                     f1[i - 1] = things[i - 1];
                 }
+
                 for (int i = things.length / 2 + 1; i <= things.length; i++) {
                     f2[(things.length / 2) - 1] = things[(things.length / 2) - 1];
                 }
@@ -88,10 +109,13 @@ public class Product extends Function {
     @Override
     public String toString() {
         String string = "(";
+
         for(int i = 0; i<things.length; i++){
+
             if(i == things.length-1){
                 string += things[i].toString() + ")";
             }
+
             else{
                 string += (things[i].toString()) + "*";
             }
