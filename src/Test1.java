@@ -7,12 +7,15 @@ public class Test1 {
             System.exit(1);
         }
         Variable var = Variable.X;
+        System.out.println("Derivative Testing");
         System.out.println("Testing constants and variables...");
         Function f1 = new Product(new Constant(2), var, var);
-        System.out.println(f1.derivative());
+        System.out.println("Function: " + f1);
+        System.out.println("Derivative: " + f1.derivative());
+        System.out.println("Testing nested functions...");
         Function f2 = new Product(new Product(new Constant(2), var, var), new Sum(new Product(new Constant(2), var), new Constant(5)));
-        System.out.println(f2);
-        System.out.println(f2.derivative());
+        System.out.println("Function: " + f2);
+        System.out.println("Derivative: " + f2.derivative());
     }
 
 }
