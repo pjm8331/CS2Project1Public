@@ -41,7 +41,7 @@ public class Product extends Function {
 
     public Function powerrule(Constant in, int numbervar){
         Function[] news = new Function[numbervar];
-        double newin = in.evaluate(0)/numbervar;
+        double newin = in.evaluate(0)*numbervar;
         news[0] = new Constant(newin);
 
         for(int i = 1; i<numbervar; i++){
