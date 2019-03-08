@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Product extends Function {
 
@@ -36,73 +37,49 @@ public class Product extends Function {
     }
 
     public Function productrule(Function f1, Function f2){
-        return new Sum(new Product(f1.derivative(), f2), new Product(f1, f2.derivative()));
+
+        Function p1 = new Product(f1.derivative().simplify, f2.simplify);
+        Function p2 = new Product(f1, f2.derivative());
+        return new Sum(p1, p2);
     }
 
-    public Function powerrule(Constant in, int numbervar){
-        Function[] news = new Function[numbervar];
-        double newin = in.evaluate(0)*numbervar;
-        news[0] = new Constant(newin);
+    public Function simplify(){
+        Function zero = new Constant(0);
+        Function one = new Constant(1);
 
-        for(int i = 1; i<numbervar; i++){
-            news[i] = Variable.X;
+        if(things[1] == zero || things[0] == zero){
+            return zero;
         }
-
-        return new Product(news);
+        else if(things[0] == one){
+            return things[1];
+        }
+        else if(things[1] == one){
+            return things[0];
+        }
+        else{
+            return new Product(things);
+        }
     }
 
     public Function derivative() {
-        int numbervar = 0;
-        double totalconstant = 1;
-        boolean id = false;
-
-        for (int i = 0; i < things.length; i++) {
-            if (things[i] instanceof Variable) {
-                numbervar += 1;
-            }
-
-            if (things[i].isConstant()) {
-                totalconstant = totalconstant * things[i].evaluate(0);
-            }
-
-            if ((things[i] instanceof Product || things[i] instanceof Sine || things[i] instanceof Cosine || things[i] instanceof Sum) && !id) {
-                id = true;
-            }
-        }
-
         if (isConstant()) {
             return new Constant(0);
         }
 
-        else if (!id) {
-            return powerrule(new Constant(totalconstant), numbervar);
-        }
-
         else {
+            if(things.length == 1){
+                return things[0].derivative();
+            }
 
-            if (things.length == 2) {
+            else if (things.length == 2) {
                 return productrule(things[0], things[1]);
 
             }
 
-            else if (things.length == 3) {
-                return productrule(new Product(things[0], things[1]), things[2]);
-            }
-
             else{
-                Function[] f1 = new Function[things.length / 2];
-                Function[] f2 = new Function[things.length / 2];
-
-                for (int i = 1; i <= things.length / 2; i++) {
-                    f1[i - 1] = things[i - 1];
-                }
-
-                for (int i = things.length / 2 + 1; i <= things.length; i++) {
-                    f2[(things.length / 2) - 1] = things[(things.length / 2) - 1];
-                }
-                return productrule(new Product(f1), new Product(f2));
+                Function[] newArray = Arrays.copyOfRange(things, 1, things.length);
+                return new Product(things[0], new Product(newArray).derivative());
             }
-
         }
     }
 
