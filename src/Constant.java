@@ -25,7 +25,7 @@ public class Constant extends Function {
     }
 
     @Override
-    public Function integral(double bound1, double bound2, int n) {
-        return null;
+    public double integral(double bound1, double bound2, int n) {
+        return 0.0;
     }
 }
