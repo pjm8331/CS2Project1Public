@@ -5,21 +5,42 @@ package functions;
  */
 public class Variable extends Function {
     public final static Variable X = new Variable();
+
+    /**
+     * Constructor for Variable class
+     */
     private Variable(){
     }
 
+    /**
+     * Evaluates a function at the given value
+     * @param x value to evaluate at
+     * @return the evaluated function
+     */
     public double evaluate(double x) {
         return x;
     }
 
+    /**
+     * If the variable is constant
+     * @return a boolean value
+     */
     public boolean isConstant() {
         return false;
     }
 
+    /**
+     * Gets the derivative of the function
+     * @return the differentiation of the function
+     */
     public Function derivative(){
         return new Constant(1);
     }
 
+    /**
+     * Simplify function for recursion
+     * @return the variable
+     */
     public Function simplify(){
         return Variable.X;
     }
@@ -36,6 +57,10 @@ public class Variable extends Function {
         return ((.5 * evaluate(bound2) * evaluate(bound2))-(.5 * evaluate(bound1) * evaluate(bound1)));
     }
 
+    /**
+     * A string form of the variable
+     * @return the variable in string form
+     */
     @Override
     public String toString() {
         return "x";
