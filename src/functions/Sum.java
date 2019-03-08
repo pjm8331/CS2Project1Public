@@ -106,6 +106,9 @@ public class Sum extends Function {
 
     @Override
     public String toString() {
+        if(isConstant()){
+            return(Double.toString(evaluate(0)));
+        }
         String string = "(";
         for(int i = 0; i<things.length; i++){
             if(i == things.length-1){
