@@ -15,6 +15,10 @@ public class Variable extends Function {
         return new Constant(1);
     }
 
+    public Function simplify(){
+        return Variable.X;
+    }
+
     @Override
     public String toString() {
         return "x";

@@ -16,6 +16,10 @@ public class Constant extends Function {
         return new Constant(0);
     }
 
+    public Function simplify(){
+        return new Constant(value);
+    }
+
     public String toString() {
         return Double.toString(value);
     }

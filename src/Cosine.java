@@ -16,6 +16,10 @@ public class Cosine extends Function{
         return new Product(new Constant(-1), new Sine(function), function.derivative());
     }
 
+    public Function simplify(){
+        return new Cosine(function);
+    }
+
     @Override
     public String toString() {
         return "Cos(" + function.toString() + ")";

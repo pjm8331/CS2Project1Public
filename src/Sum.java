@@ -61,6 +61,10 @@ public class Sum extends Function {
         }
     }
 
+    public Function simplify(){
+        return null;
+    }
+
     @Override
     public String toString() {
         String string = "(";
