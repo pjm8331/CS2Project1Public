@@ -1,6 +1,7 @@
 package functions;
 
 /**
+ * Function superclass for all function classes
  * @author Peter Mastropaolo(pjm8331)
  */
 public abstract class Function {
