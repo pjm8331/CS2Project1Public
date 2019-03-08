@@ -38,7 +38,7 @@ public class Product extends Function {
 
     public Function productrule(Function f1, Function f2){
 
-        Function p1 = new Product(f1.derivative().simplify, f2.simplify);
+        Function p1 = new Product(f1.derivative(), f2);
         Function p2 = new Product(f1, f2.derivative());
         return new Sum(p1, p2);
     }
@@ -46,19 +46,20 @@ public class Product extends Function {
     public Function simplify(){
         Function zero = new Constant(0);
         Function one = new Constant(1);
-
-        if(things[1] == zero || things[0] == zero){
+        /*
+        if(things[1].simplify() == zero || things[0].simplify() == zero){
             return zero;
         }
-        else if(things[0] == one){
-            return things[1];
+        else if(things[0].simplify() == one){
+            return things[1].simplify();
         }
-        else if(things[1] == one){
-            return things[0];
+        else if(things[1].simplify() == one){
+            return things[0].simplify();
         }
         else{
             return new Product(things);
-        }
+        }*/
+        return null;
     }
 
     public Function derivative() {
@@ -85,8 +86,9 @@ public class Product extends Function {
 
     @Override
     public String toString() {
-        String string = "(";
 
+        Function p1 = new Product(things).simplify();
+        String string = "(";
         for(int i = 0; i<things.length; i++){
 
             if(i == things.length-1){
