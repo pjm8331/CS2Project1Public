@@ -26,6 +26,6 @@ public class Constant extends Function {
 
     @Override
     public double integral(double bound1, double bound2, int n) {
-        return 0.0;
+        return (value*bound2) - (value*bound1);
     }
 }
