@@ -2,6 +2,7 @@ package functions;
 import java.util.ArrayList;
 
 /**
+ * Class for sum functions
  * @author Peter Mastropaolo(pjm8331)
  */
 
@@ -9,6 +10,10 @@ public class Sum extends Function {
     public Function[] things;
     private boolean constant = true;
 
+    /**
+     * Constructor for sum class
+     * @param things Array of functions
+     */
     public Sum(Function ...things){
         this.things = things;
         for(Function i : things){
@@ -20,6 +25,11 @@ public class Sum extends Function {
 
     }
 
+    /**
+     * Evaluates the function at a given value
+     * @param x value to evaluate at
+     * @return the evaluated function
+     */
     public double evaluate(double x) {
         ArrayList<Double> compute = new ArrayList<>();
         for(int i = 0; i<things.length; i++){
@@ -33,10 +43,18 @@ public class Sum extends Function {
         return total;
     }
 
+    /**
+     * Whether or not the function is constant
+     * @return a boolean value
+     */
     public boolean isConstant() {
         return this.constant;
     }
 
+    /**
+     * The derivative of the function
+     * @return the differentiation of the function
+     */
     public Function derivative(){
         Function[] newthings = new Function[things.length];
         for(int i = 0; i<things.length; i++){
@@ -66,6 +84,10 @@ public class Sum extends Function {
         }
     }
 
+    /**
+     * Simplify for recursion and in certain cases
+     * @return the simplified function.
+     */
     public Function simplify(){
         double newconstant = 0;
         ArrayList<Function> newones = new ArrayList<>();
@@ -115,6 +137,10 @@ public class Sum extends Function {
         return total;
     }
 
+    /**
+     * The function in string form
+     * @return a string of the function
+     */
     @Override
     public String toString() {
         if(isConstant()){
