@@ -11,4 +11,6 @@ public abstract class Function {
 
     public abstract Function simplify();
 
+    public abstract Function integral();
+
 }
