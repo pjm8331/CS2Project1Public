@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
+ * Product class for product functions
  * @author Peter Mastropaolo(pjm8331)
  */
 
@@ -12,6 +13,10 @@ public class Product extends Function {
     private boolean constant = true;
     private boolean zero = false;
 
+    /**
+     * Constructor for product class
+     * @param things
+     */
     public Product(Function... things){
         this.things = things;
 
@@ -25,6 +30,11 @@ public class Product extends Function {
         }
     }
 
+    /**
+     * evaluates the function at the given value
+     * @param x value to evaluate at
+     * @return the function after it has been evaluated
+     */
     public double evaluate(double x) {
         ArrayList<Double> compute = new ArrayList<>();
 
@@ -41,10 +51,20 @@ public class Product extends Function {
         return total;
     }
 
+    /**
+     * Whether or not the function is constant
+     * @return a boolean value
+     */
     public boolean isConstant() {
         return this.constant;
     }
 
+    /**
+     * The product rule for 2 functions
+     * @param f1 first function
+     * @param f2 second function
+     * @return the function after product rule
+     */
     public Function productrule(Function f1, Function f2){
 
         Function p1 = new Product(f1.derivative(), f2);
@@ -52,6 +72,10 @@ public class Product extends Function {
         return new Sum(p1, p2);
     }
 
+    /**
+     * Simplify function for recursion
+     * @return simplifies the product in certain cases
+     */
     public Function simplify(){
         Function zero = new Constant(0);
         double totalconstant = 1;
@@ -97,6 +121,10 @@ public class Product extends Function {
         }*/
     }
 
+    /**
+     * Gets the derivative of the function
+     * @return the function after differentiation
+     */
     public Function derivative() {
         if (isConstant()) {
             return new Constant(0);
@@ -119,6 +147,10 @@ public class Product extends Function {
         }
     }
 
+    /**
+     * The string version of the functino
+     * @return the string of the function
+     */
     @Override
     public String toString() {
         if(zero || isConstant()){
