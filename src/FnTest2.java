@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-//import functions.*;
+import functions.*;
 
 /*
  * $Id: FnTest2.java,v 1.1 2012/09/08 19:32:49 vcss243 Exp $
@@ -25,12 +25,12 @@ public class FnTest2 {
         }
 
 
-//        final Function sin = new Sine( Variable.X );
-//        final Function cos = new Cosine( Variable.X );
+        final Function sin = new Sine( Variable.X );
+        final Function cos = new Cosine( Variable.X );
         List< Function > functions = new ArrayList<>() {{
-//            add( sin );
-//            add( cos );
-//            add( cos.derivative() );
+            add( sin );
+            add( cos );
+            add( cos.derivative() );
             add( new Sum( Variable.X, new Constant( 1.5 ),
                           new Sum( Variable.X, new Constant( 2.0 ) )
             ) );
@@ -44,9 +44,9 @@ public class FnTest2 {
                             ( func.isConstant() ? "" : "not " ) +
                             "a constant." );
             System.out.println( "The derivative of " + func +
-//                    " is " + func.derivative() +
+                    " is " + func.derivative() +
                     ", which is " +
-//                    ( func.derivative().isConstant() ? "" : "not " ) +
+                    ( func.derivative().isConstant() ? "" : "not " ) +
                     "a constant." );
         }
 

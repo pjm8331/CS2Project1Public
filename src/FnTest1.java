@@ -1,4 +1,4 @@
-//import functions.*;
+import functions.*;
 
 /**
  *
@@ -26,8 +26,8 @@ public class FnTest1 {
                                          f.evaluate( value ) );
         }
         System.out.println( "Derivative: " + f.derivative() );
-        //System.out.println( "Integral from 0 to 10: " +
-        //                            f.integral( 0.0, 10.0, 1000000 ) );
+        System.out.println( "Integral from 0 to 10: " +
+                                    f.integral( 0.0, 10.0, 1000000 ) );
     }
 
 }
