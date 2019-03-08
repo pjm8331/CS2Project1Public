@@ -1,5 +1,4 @@
-//import functions.*;
-
+import functions.*;
 /**
  * A very basic test of the Function classes to help the student see
  * if his/her understanding of the interface is correct

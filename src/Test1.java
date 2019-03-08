@@ -1,3 +1,4 @@
+import functions.*
 public class Test1 {
 
 
