@@ -20,6 +20,11 @@ public class Variable extends Function {
     }
 
     @Override
+    public Function integral(double bound1, double bound2, int n) {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "x";
     }

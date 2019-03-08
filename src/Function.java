@@ -11,6 +11,9 @@ public abstract class Function {
 
     public abstract Function simplify();
 
-    public abstract Function integral();
+    public  Function integral(double bound1, double bound2, int n){
+        double avg = (bound2-bound1)/n;
+        return null;
+    }
 
 }

@@ -23,4 +23,9 @@ public class Constant extends Function {
     public String toString() {
         return Double.toString(value);
     }
+
+    @Override
+    public Function integral(double bound1, double bound2, int n) {
+        return null;
+    }
 }
