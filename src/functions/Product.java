@@ -148,7 +148,7 @@ public class Product extends Function {
     }
 
     /**
-     * The string version of the functino
+     * The string version of the function
      * @return the string of the function
      */
     @Override
