@@ -96,7 +96,11 @@ public class Sum extends Function {
 
     @Override
     public double integral(double bound1, double bound2, int n) {
-        return 0.0;
+        double total = 0;
+        for(int i = 0; i<things.length; i++){
+            total+= things[i].integral(bound1, bound2, n);
+        }
+        return total;
     }
 
     @Override
