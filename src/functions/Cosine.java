@@ -6,6 +6,11 @@ package functions;
  */
 public class Cosine extends Function{
     public Function function;
+
+    /**
+     * Constructor for cosine function
+     * @param function
+     */
     public Cosine(Function function){
         this.function = function;
     }
