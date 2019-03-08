@@ -6,6 +6,7 @@ public class Product extends Function {
 
     public Function[] things;
     private boolean constant = true;
+    private boolean zero = false;
 
     public Product(Function... things){
         this.things = things;
@@ -13,6 +14,9 @@ public class Product extends Function {
         for(Function i : things){
             if(constant && !i.isConstant()){
                 constant = false;
+            }
+            if(i == new Constant(0) && !zero){
+                zero = true;
             }
         }
     }
@@ -113,18 +117,22 @@ public class Product extends Function {
 
     @Override
     public String toString() {
-
-        String string = "(";
-        for(int i = 0; i<things.length; i++){
-
-            if(i == things.length-1){
-                string += things[i].simplify().toString() + ")";
-            }
-
-            else{
-                string += (things[i].simplify().toString()) + "*";
-            }
+        if(zero || isConstant()){
+            return(Double.toString(evaluate(0)));
         }
-        return string;
+        else{
+            String string = "(";
+            for(int i = 0; i<things.length; i++){
+
+                if(i == things.length-1){
+                    string += things[i].simplify().toString() + ")";
+                }
+
+                else{
+                    string += (things[i].simplify().toString()) + "*";
+                }
+            }
+            return string;
+        }
     }
 }
