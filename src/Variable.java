@@ -21,7 +21,7 @@ public class Variable extends Function {
 
     @Override
     public double integral(double bound1, double bound2, int n) {
-        return 0.0;
+        return ((.5 * evaluate(bound2) * evaluate(bound2))-(.5 * evaluate(bound1) * evaluate(bound1)));
     }
 
     @Override
