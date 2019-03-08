@@ -1,4 +1,8 @@
 package functions;
+
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
 public class Cosine extends Function{
     public Function function;
     public Cosine(Function function){

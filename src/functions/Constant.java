@@ -1,4 +1,8 @@
 package functions;
+
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
 public class Constant extends Function {
     public double value;
 

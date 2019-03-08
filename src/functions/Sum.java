@@ -1,6 +1,10 @@
 package functions;
 import java.util.ArrayList;
 
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
+
 public class Sum extends Function {
     public Function[] things;
     private boolean constant = true;

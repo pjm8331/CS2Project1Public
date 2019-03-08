@@ -2,6 +2,10 @@ package functions;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
+
 public class Product extends Function {
 
     public Function[] things;

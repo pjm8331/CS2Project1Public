@@ -1,4 +1,8 @@
 package functions;
+
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
 public class Variable extends Function {
     public final static Variable X = new Variable();
     private Variable(){

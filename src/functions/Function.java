@@ -1,4 +1,8 @@
 package functions;
+
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
 public abstract class Function {
 
     public abstract double evaluate(double x);

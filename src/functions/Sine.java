@@ -1,4 +1,8 @@
 package functions;
+
+/**
+ * @author Peter Mastropaolo(pjm8331)
+ */
 public class Sine extends Function{
     public Function function;
     public Sine(Function function){
