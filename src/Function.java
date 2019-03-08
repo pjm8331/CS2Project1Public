@@ -9,4 +9,6 @@ public abstract class Function {
 
     public abstract boolean isConstant();
 
+    public abstract Function simplify();
+
 }
