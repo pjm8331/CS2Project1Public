@@ -99,6 +99,13 @@ public class Sum extends Function {
         }
     }
 
+    /**
+     * Returns the integral of the function
+     * @param bound1 lower bound
+     * @param bound2 upper bound
+     * @param n amount of intervals for trapezoidal rule
+     * @return the integral of the function
+     */
     @Override
     public double integral(double bound1, double bound2, int n) {
         double total = 0;
