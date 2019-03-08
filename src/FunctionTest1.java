@@ -1,5 +1,5 @@
 import functions.*;
-public class Test1 {
+public class FunctionTest1 {
 
 
     public static void main( String[] args ) {
