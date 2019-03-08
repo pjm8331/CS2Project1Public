@@ -45,7 +45,34 @@ public class Product extends Function {
 
     public Function simplify(){
         Function zero = new Constant(0);
-        Function one = new Constant(1);
+        double totalconstant = 1;
+        ArrayList<Function> newones = new ArrayList<>();
+        for(int i = 0; i < things.length; i++){
+            if(things[i] == zero){
+                return zero;
+            }
+            else if(things[i].isConstant()){
+                totalconstant = totalconstant * things[i].evaluate(0);
+            }
+            else{
+                newones.add(things[i]);
+            }
+        }
+        if(totalconstant == 1) {
+            Function[] newproduct = new Function[newones.size()];
+            for (int i = 0; i < newproduct.length; i++) {
+                newproduct[i] = newones.get(i);
+            }
+            return new Product(newproduct);
+        }
+        else{
+            Function[] newproduct = new Function[newones.size() + 1];
+            newproduct[0] = new Constant(totalconstant);
+            for(int i = 1; i < newproduct.length; i++){
+                newproduct[i] = newones.get(i-1);
+            }
+            return new Product(newproduct);
+        }
         /*
         if(things[1].simplify() == zero || things[0].simplify() == zero){
             return zero;
@@ -59,7 +86,6 @@ public class Product extends Function {
         else{
             return new Product(things);
         }*/
-        return null;
     }
 
     public Function derivative() {
@@ -87,16 +113,15 @@ public class Product extends Function {
     @Override
     public String toString() {
 
-        Function p1 = new Product(things).simplify();
         String string = "(";
         for(int i = 0; i<things.length; i++){
 
             if(i == things.length-1){
-                string += things[i].toString() + ")";
+                string += things[i].simplify().toString() + ")";
             }
 
             else{
-                string += (things[i].toString()) + "*";
+                string += (things[i].simplify().toString()) + "*";
             }
         }
         return string;

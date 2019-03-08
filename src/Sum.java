@@ -62,7 +62,36 @@ public class Sum extends Function {
     }
 
     public Function simplify(){
-        return null;
+        double newconstant = 0;
+        ArrayList<Function> newones = new ArrayList<>();
+        if(isConstant()){
+            return new Constant(evaluate(0));
+        }
+        else{
+            for(int i = 0; i<things.length; i++){
+                if(things[i].isConstant()){
+                    newconstant += things[i].evaluate(0);
+                }
+                else{
+                    newones.add(things[i]);
+                }
+            }
+            if( newconstant == 0){
+                Function[] newsum = new Function[newones.size()];
+                for (int i = 0; i < newsum.length; i++) {
+                    newsum[i] = newones.get(i);
+                }
+                return new Sum(newsum);
+            }
+            else{
+                Function[] newsum = new Function[newones.size() + 1];
+                newsum[0] = new Constant(newconstant);
+                for (int i = 1; i < newsum.length; i++) {
+                    newsum[i] = newones.get(i-1);
+                }
+                return new Sum(newsum);
+            }
+        }
     }
 
     @Override
@@ -70,10 +99,10 @@ public class Sum extends Function {
         String string = "(";
         for(int i = 0; i<things.length; i++){
             if(i == things.length-1){
-                string += things[i].toString() + ")";
+                string += things[i].simplify().toString() + ")";
             }
             else{
-                string += (things[i].toString()) + "+";
+                string += (things[i].simplify().toString()) + "+";
             }
         }
         return string;
