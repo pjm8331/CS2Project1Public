@@ -1,5 +1,9 @@
 import functions.*;
 
+/**
+ * Test class 2 for product, sine, cosine, derivative, integral
+ * @author Peter Mastropaolo(pjm8331)
+ */
 public class FunctionTest2 {
     public static void main( String[] args ) {
         if (args.length != 0) {
